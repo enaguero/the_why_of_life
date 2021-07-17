@@ -8,9 +8,17 @@ export const Single = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 
+	useEffect(() => {
+		fetch("https://www.swapi.tech/api/people/" + params.characterId)
+			.then(resp => resp.json())
+			.then(data => {
+				debugger;
+			});
+	}, []);
+
 	return (
 		<div className="jumbotron">
-			<h1 className="display-4">This will show the demo element: {store.demo[params.theid].title}</h1>
+			<h1 className="display-4">This will show the demo element: {params.characterId}</h1>
 			<img src={rigoImageUrl} />
 			<hr className="my-4" />
 
